@@ -24,8 +24,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 
-cat_col = [1,2,3]
-num_col = [0,4]
+cat_col = [1, 2, 3]
+num_col = [0, 4]
 
 transform = ColumnTransformer(
     [
@@ -48,13 +48,13 @@ f1 = f1_score(y_test, predictions, average="macro")
 
 print("Accuracy:", str(round(accuracy, 2) * 100) + "%", "F1:", round(f1, 2))
 
-with open("Results/metrics.txt", "w") as outfile:
+with open("results/metrics.txt", "w") as outfile:
     outfile.write(f"\nAccuracy = {float(accuracy):.2f}, F1 Score = {float(f1):.2f}.")
 
 
 cm = confusion_matrix(y_test, predictions, labels=pipe.classes_)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=pipe.classes_)
 disp.plot()
-plt.savefig("Results/model_results.png", dpi=120)
+plt.savefig("results/model_results.png", dpi=120)
 
 sio.dump(pipe, "model/drug_pipeline.skops")
