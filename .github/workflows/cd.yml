@@ -14,6 +14,6 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Deployment To Hugging Face
-        env:
-          HF: ${{ secrets.HF }}
-        run: make deploy HF=$HF
+        run: echo "This is a test"
+
+
