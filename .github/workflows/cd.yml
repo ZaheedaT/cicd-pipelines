@@ -12,8 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Configure Git Credential Helper
+        run: git config --global credential.helper store
+        # Ensure token is authenticated properly
+      - name: Login to Hugging Face
+        run: huggingface-cli login --token ${{ secrets.HF }}
 
       - name: Deployment To Hugging Face
         env:
           HF: ${{ secrets.HF }}
         run: make deploy HF=$HF
+
