@@ -31,7 +31,7 @@ hf-login:
 
 push-hub:
 	huggingface-cli upload ZaheedaT/cicd-pipelines ./app --repo-type=space --commit-message="Sync App files"
-	huggingface-cli upload ZaheedaT/cicd-pipelinesn ./model /model --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload ZaheedaT/cicd-pipelines ./model /model --repo-type=space --commit-message="Sync Model"
 	huggingface-cli upload ZaheedaT/cicd-pipelines ./results /Metrics --repo-type=space --commit-message="Sync Model"
 
 deploy: hf-login push-hub
