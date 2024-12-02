@@ -3,3 +3,4 @@ pandas
 skops
 matplotlib
 black
+huggingface_hub
